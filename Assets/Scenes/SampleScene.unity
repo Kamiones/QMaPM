@@ -1452,6 +1452,8 @@ GameObject:
   - component: {fileID: 531866720}
   - component: {fileID: 531866719}
   - component: {fileID: 531866721}
+  - component: {fileID: 531866722}
+  - component: {fileID: 531866723}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1534,6 +1536,30 @@ MonoBehaviour:
   arrestDistance: 3
   cluesFound: 0
   interactionText: {fileID: 0}
+--- !u!114 &531866722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531866717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a58366e49d49d478797f593df0ac91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &531866723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531866717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20bb5d51f7ed9da488c97a10ade0fbc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &595026148
 MeshCollider:
   m_ObjectHideFlags: 0
