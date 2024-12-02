@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField, Tooltip("Tiempo en segundos")] private float timerTime = 0f;
+    private float timerTime = 0f;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private Color warningColor = Color.red;
     [SerializeField] private AudioSource backgroundMusic;
-    [SerializeField] private PopUpManager popUpManager; // PopUpManager asignado
 
     private bool isWarningTriggered = false;
 
@@ -33,12 +32,6 @@ public class Timer : MonoBehaviour
             if (backgroundMusic != null)
             {
                 backgroundMusic.pitch = 1.5f; // Cambia el pitch de la música
-            }
-
-            if (popUpManager != null)
-            {
-                Debug.Log("Abriendo PopUp");
-                popUpManager.OpenPopUp(); // Abre el pop-up cuando se activa la advertencia
             }
         }
 
@@ -67,4 +60,11 @@ public class Timer : MonoBehaviour
 
         Destroy(this); // Destruye el componente del temporizador
     }
+
+    public void SetTimerTime(float newTime)
+    {
+        timerTime = newTime;
+    }
+
+
 }
