@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ArrestNPC : MonoBehaviour
 {
-    public float arrestDistance = 3f; // Distancia máxima de arresto
+    public float arrestDistance = 2f; // Distancia máxima de arresto
     private GameObject npcToArrest;
     public int cluesFound = 0;
     private GameManager gameManager;
