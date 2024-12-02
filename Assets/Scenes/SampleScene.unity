@@ -1494,7 +1494,6 @@ MonoBehaviour:
   speed: 7
   jumpHeight: 1
   gravity: -9.81
-  cameraTransform: {fileID: 0}
 --- !u!143 &531866720
 CharacterController:
   m_ObjectHideFlags: 0
