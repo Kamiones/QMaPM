@@ -16,4 +16,4 @@ MonoBehaviour:
   nombre: Llave del hangar
   sprite: {fileID: 0}
   description: "Slim es el \xFAnico del pueblo que posee un hangar"
-  asset: {fileID: 0}
+  asset: {fileID: 374289202576707483, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
