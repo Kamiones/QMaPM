@@ -7,8 +7,7 @@ public class PistaObjeto : Pista
 
     public override void CrearPista()
     {
-        var obj = Instantiate(GameManager.Instance.objetoPrefab, pos, Quaternion.identity);
-        obj.GetComponent<SpriteRenderer>().sprite = asset;
+        SpawnearPista(GameManager.Instance.objetoPrefab);
     }
 
 }

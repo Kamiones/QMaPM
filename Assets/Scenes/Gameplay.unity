@@ -1181,6 +1181,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5254744924520217869, guid: ab66a31783116f34cb0e1df63ce83bbf, type: 3}
+--- !u!114 &531866723 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3862426268130087546, guid: 1b40d9cfc541df04ca842129b94258c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 300365428109760641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20bb5d51f7ed9da488c97a10ade0fbc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &595026148
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2887,7 +2899,9 @@ MonoBehaviour:
   niveles:
   - {fileID: 11400000, guid: b6b5f632140cf8e44be76530180776c2, type: 2}
   timer: {fileID: 8830100356917066229}
-  objetoPrefab: {fileID: 0}
+  playerManager: {fileID: 531866723}
+  objetoPrefab: {fileID: 3376991699294476596, guid: b3582b1b939637b4abd4bf7e742b8ff2,
+    type: 3}
   npcPrefab: {fileID: 327051031070221477, guid: 290c5d4fce0cefd44b3c0642c37c1df0,
     type: 3}
   victoryScreen: {fileID: 651783678}

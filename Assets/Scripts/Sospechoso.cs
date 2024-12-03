@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,8 +10,13 @@ public abstract class Pista : ScriptableObject
     public string nombre;
     public Sprite sprite;
     [TextArea] public string description;
-
     public abstract void CrearPista();
+
+    protected void SpawnearPista(Item item)
+    {
+        Item i = Instantiate(item, pos, Quaternion.identity);
+        i.pista = this;
+    }
 }
 
 [CreateAssetMenu(fileName = "SospechosoSO", menuName = "Scriptables/SospechosoSO")]

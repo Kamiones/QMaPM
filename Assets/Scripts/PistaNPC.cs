@@ -8,8 +8,7 @@ public class PistaNPC : Pista
 
     public override void CrearPista()
     {
-        Item npc = Instantiate(GameManager.Instance.npcPrefab, pos, Quaternion.identity);
-        npc.pista = this;
+        SpawnearPista(GameManager.Instance.npcPrefab);
     }
 
 }
