@@ -3303,7 +3303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1708699914179266734
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4315,15 +4315,15 @@ MonoBehaviour:
     newMusic: {fileID: 8300000, guid: 38262c89543de4b49ade1d9b19d285fb, type: 3}
     newColor: {r: 0, g: 0, b: 0, a: 0}
     pingPong: 0
-  - remainingTime: 110
+  - remainingTime: 60
     newMusic: {fileID: 8300000, guid: 38262c89543de4b49ade1d9b19d285fb, type: 3}
     newColor: {r: 0, g: 0, b: 0, a: 0}
     pingPong: 0
-  - remainingTime: 100
+  - remainingTime: 30
     newMusic: {fileID: 0}
-    newColor: {r: 1, g: 0, b: 0, a: 0}
+    newColor: {r: 1, g: 0, b: 0, a: 1}
     pingPong: 0
-  - remainingTime: 90
+  - remainingTime: 10
     newMusic: {fileID: 0}
     newColor: {r: 0, g: 0, b: 0, a: 0}
     pingPong: 1

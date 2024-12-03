@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] TimerState[] timerStates;
     private int currentState = 0;
-    private bool pingPong = false;
+    private bool isLastState, pingPong = false;
 
     void Update()
     {
@@ -41,7 +41,7 @@ public class Timer : MonoBehaviour
                 timerText.color = new Color(aux.r, aux.g, aux.b, alpha);
             }
 
-            CheckTimeStates();
+            if(!isLastState) CheckTimeStates();
         }
 
         void CheckTimeStates()
@@ -50,6 +50,7 @@ public class Timer : MonoBehaviour
             {
                 currentState++;
                 SetTimeState(currentState);
+                if (currentState >= timerStates.Length-1) isLastState = true;
             }
         }
 
@@ -66,8 +67,7 @@ public class Timer : MonoBehaviour
     {
         TimerState current = timerStates[index];
         if(current.newMusic != null) GameManager.Instance.soundManager.PlayMusic(current.newMusic);
-        if(current.newColor != null) timerText.color = current.newColor;
-        Debug.Log(current.newColor);
+        if(current.newColor != new Color()) timerText.color = current.newColor;
         pingPong = current.pingPong;
     }
 
