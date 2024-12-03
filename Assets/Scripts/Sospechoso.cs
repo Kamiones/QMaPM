@@ -11,10 +11,11 @@ public abstract class Pista : ScriptableObject
     [TextArea] public string description;
     public abstract void CrearPista();
 
-    protected void SpawnearPista(Item item)
+    protected Item SpawnearPista(Item item)
     {
         Item i = Instantiate(item, pos, Quaternion.identity);
         i.pista = this;
+        return i;
     }
 }
 
