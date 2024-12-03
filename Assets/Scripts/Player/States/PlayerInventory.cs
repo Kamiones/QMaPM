@@ -16,6 +16,7 @@ public class PlayerInventory : PlayerState
         Debug.Log("PlayerInventory: OnStart");
         m_Controller.PlayerManager.EnableInput(false);
         m_Controller.ShowInventory();
+        
     }
 
     public override void OnUpdate()
@@ -28,5 +29,6 @@ public class PlayerInventory : PlayerState
         Debug.Log("PlayerInventory: OnFinish");
         m_Controller.PlayerManager.EnableInput(true);
         m_Controller.HideInventory();
+        
     }
 }

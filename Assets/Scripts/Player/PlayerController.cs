@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private PlayerState m_CurrentState;
     #endregion
-
+    [SerializeField] InventoryManager inventoryManager;
     private float interactionDistance = 3f; // Distancia para detectar NPC
 
     public bool IsNPCInFront()
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
         // Modificar la transición para verificar primero la pulsación de la tecla E
         Transition toAsk = new Transition(
-            isValid: () => Input.GetKeyDown(KeyCode.Q) && IsNPCInFront(),
+            isValid: () => Input.GetKeyDown(KeyCode.Q) && IsNPCInFront() && PlayerManager.movementController.IsGrounded,
             getNextState: () => AskState
         );
         WalkState.Transitions.Add(toAsk);
@@ -85,13 +85,11 @@ public class PlayerController : MonoBehaviour
 
     public void ShowInventory()
     {
-        // Mostrar interfaz de inventario
-        // ...código para mostrar inventario...
+        inventoryManager.ShowInventory();
     }
 
     public void HideInventory()
     {
-        // Ocultar interfaz de inventario
-        // ...código para ocultar inventario...
+        inventoryManager.HideInventory();
     }
 }

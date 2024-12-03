@@ -14,6 +14,8 @@ public class ArrestNPC : MonoBehaviour
     public Text interactionText; // Referencia al texto UI
     private bool isArresting = false;
 
+    [SerializeField] private MovementController movementController;
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -25,14 +27,16 @@ public class ArrestNPC : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        Debug.Log("Clues found: " + cluesFound);
         if (isArresting) return;
 
         RaycastHit hit;
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, arrestDistance))
         {
-            if (hit.collider.CompareTag("NPC"))
+            if (hit.collider.CompareTag("Suspect"))
             {
+                Debug.Log("Sopechoso encontrado");
                 NPC npc = hit.collider.GetComponent<NPC>();
                 if (npc != null)
                 {
@@ -54,7 +58,8 @@ public class ArrestNPC : MonoBehaviour
             HideMessage();
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && npcToArrest != null && cluesFound > 0)
+        // Modificar la condición de arresto para verificar isGrounded
+        if (Input.GetKeyDown(KeyCode.E) && npcToArrest != null && cluesFound > 0 && movementController.IsGrounded)
         {
             Arrest(npcToArrest);
         }

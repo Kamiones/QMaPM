@@ -5,7 +5,7 @@ public class PlayerAsk : PlayerState
     public PlayerAsk(PlayerController controller) : base(controller)
     {
         Transition toWalk = new Transition(
-            isValid: () => Input.GetKeyDown(KeyCode.Q),
+            isValid: () => Input.GetKeyDown(KeyCode.Q) && m_Controller.IsNPCInFront() && m_Controller.PlayerManager.movementController.IsGrounded,
             getNextState: () => m_Controller.WalkState
         );
         Transitions.Add(toWalk);
