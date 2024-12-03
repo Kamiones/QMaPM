@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [Header("Assets")]
     public Susss sospechosoPrefab;
     public Item objetoPrefab, npcPrefab;
+    [HideInInspector] public int clues;
 
 #if UNITY_EDITOR
     public static void CheckMinArraySize<T>(ref T[] array, int min, string elem) where T : ScriptableObject

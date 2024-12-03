@@ -32,7 +32,7 @@ public class InteractionController : MonoBehaviour
                     dialogArea.SetActive(true);
                 }
             }
-            else if (hit.transform.CompareTag("Susss"))
+            else if (hit.transform.CompareTag("NPC"))
             {
                 Debug.Log("Interact [E]");
 
@@ -41,8 +41,7 @@ public class InteractionController : MonoBehaviour
                     isInteracting = true;
                     try
                     {
-                        hit.transform.GetComponent<Item>().Interact();
-                        dialogText.text = "Random text";
+                        dialogText.text = hit.transform.GetComponent<Item>().Interact();
                         dialogArea.SetActive(true);
                     }
                     catch {}

@@ -5,7 +5,6 @@ public class ArrestNPC : MonoBehaviour
 {
     public float arrestDistance = 2f; // Distancia máxima de arresto
     private GameObject npcToArrest;
-    public int cluesFound = 0;
     public Text interactionText; // Referencia al texto UI
     private bool isArresting = false;
 
@@ -15,7 +14,7 @@ public class ArrestNPC : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (IsSusInFront() && cluesFound > 0 && movementController.IsGrounded) GameManager.Instance.Arrest(npcToArrest.GetComponent<Susss>().sus);
+            if (IsSusInFront() && GameManager.Instance.clues > 0 && movementController.IsGrounded) GameManager.Instance.Arrest(npcToArrest.GetComponent<Susss>().sus);
             else ShowMessage("No puedes arrestar en este momento.");
         }
     }
