@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {  get; private set; }
     [SerializeField] private Nivel[] niveles = new Nivel[1];
     private Nivel currentNivel;
+    public SoundManager soundManager;
     [SerializeField] private Timer timer;
     [SerializeField] private PlayerManager playerManager;
     public Item objetoPrefab, npcPrefab;
