@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd17c5db99485b4189298d512d8f990, type: 3}
   m_Name: Cor_Casaca
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
+  pos: {x: 30, y: 0, z: -60}
   nombre: Casaca militar
   sprite: {fileID: 0}
   description: "La \xFAnica persona que tiene acceso a prendas militares es el coronel"

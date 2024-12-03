@@ -8,7 +8,13 @@ public class PistaObjeto : Pista
     public override void CrearPista()
     {
         Item i = SpawnearPista(GameManager.Instance.objetoPrefab);
-        if(asset!=null) Instantiate(asset, pos, Quaternion.identity).transform.SetParent(i.transform);
+        if (asset != null)
+        {
+            i.transform.GetChild(0).gameObject.SetActive(false);
+            Transform aux = Instantiate(asset, Vector3.zero, Quaternion.identity).transform;
+            aux.SetParent(i.transform);
+            aux.localPosition = Vector3.zero;
+        }
     }
 
 }

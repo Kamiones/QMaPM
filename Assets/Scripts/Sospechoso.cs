@@ -13,7 +13,7 @@ public abstract class Pista : ScriptableObject
 
     protected Item SpawnearPista(Item item)
     {
-        Item i = Instantiate(item, pos, Quaternion.identity);
+        Item i = Instantiate(item, new Vector3(pos.x, 30f, pos.z), Quaternion.identity);
         i.pista = this;
         return i;
     }

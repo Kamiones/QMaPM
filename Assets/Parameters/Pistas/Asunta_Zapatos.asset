@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd17c5db99485b4189298d512d8f990, type: 3}
   m_Name: Asunta_Zapatos
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
+  pos: {x: 45, y: 0, z: -70}
   nombre: Zapatos ensangrentados
   sprite: {fileID: 0}
   description: "Do\xF1a Asunta compr\xF3 este modelo la semana pasada"

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd17c5db99485b4189298d512d8f990, type: 3}
   m_Name: Cor_Orden
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
+  pos: {x: 40, y: 0, z: -60}
   nombre: Orden de traslado
   sprite: {fileID: 0}
   description: Firmada por el mismo coronel. Contiene instrucciones para trasladar

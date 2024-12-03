@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd17c5db99485b4189298d512d8f990, type: 3}
   m_Name: Cap_Nota2
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
+  pos: {x: 60, y: 0, z: -70}
   nombre: Nota
   sprite: {fileID: 0}
   description: "Parece ser la caligraf\xEDa del capit\xE1n\nLa nota dice: \"\xC9l

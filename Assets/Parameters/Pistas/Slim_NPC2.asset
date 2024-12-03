@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9811db8107975a34087ff2935358f85a, type: 3}
   m_Name: Slim_NPC2
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
+  pos: {x: 65, y: 0, z: -60}
   nombre: Testimonio de Carlos
   sprite: {fileID: 0}
   description: "\"Vi a Slim rondando cerca del \xE1rea del crimen esa noche\""
