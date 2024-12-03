@@ -1450,10 +1450,10 @@ GameObject:
   m_Component:
   - component: {fileID: 531866718}
   - component: {fileID: 531866720}
-  - component: {fileID: 531866719}
   - component: {fileID: 531866721}
   - component: {fileID: 531866722}
   - component: {fileID: 531866723}
+  - component: {fileID: 531866724}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1478,22 +1478,6 @@ Transform:
   - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &531866719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531866717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb93ea708cf2c2b4783d738f7ca21a33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 531866720}
-  speed: 7
-  jumpHeight: 1
-  gravity: -9.81
 --- !u!143 &531866720
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1559,6 +1543,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bb5d51f7ed9da488c97a10ade0fbc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &531866724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531866717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb93ea708cf2c2b4783d738f7ca21a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 531866720}
+  speed: 7
+  jumpHeight: 1
+  gravity: -9.81
 --- !u!64 &595026148
 MeshCollider:
   m_ObjectHideFlags: 0

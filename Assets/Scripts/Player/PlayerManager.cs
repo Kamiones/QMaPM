@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour
 
         if (transform.childCount > 1)
         {
-            cameraController = GetComponentInChildren<CameraController>()();
+            cameraController = GetComponentInChildren<CameraController>();
             if (cameraController == null)
             {
                 Debug.LogError("CameraController no encontrado en el segundo hijo.");
