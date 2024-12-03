@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
-using UnityEngine.SceneManagement; // Agregamos para poder recargar la escena
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,8 +9,7 @@ public class GameManager : MonoBehaviour
     private Nivel currentNivel;
     [SerializeField] private Timer timer;
     public GameObject objetoPrefab, npcPrefab;
-    public GameObject victoryScreen; // Pantalla de victoria
-    public GameObject loseScreen;    // Pantalla de derrota
+    [SerializeField] private GameObject victoryScreen, loseScreen;
 
 #if UNITY_EDITOR
     public static void CheckMinArraySize<T>(ref T[] array, int min, string elem) where T : ScriptableObject
@@ -51,59 +49,37 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        if(Instance == null) Instance = this;
         else Destroy(gameObject);
     }
 
     void Start()
     {
-        // Ocultar las pantallas al inicio
+        Time.timeScale = 1;
         victoryScreen.SetActive(false);
         loseScreen.SetActive(false);
-        GenerateLevel(0);
-    }
-
-    private void GenerateLevel(int n)
-    {
-        currentNivel = niveles[n];
-        Sospechoso[] sospechosos = (Sospechoso[])currentNivel.sospechosos.Clone();
-        int r = Random.Range(0, sospechosos.Length);
-        (sospechosos[0], sospechosos[r]) = (sospechosos[r], sospechosos[0]);
-        int[] pistas_Sospechosos = new int[sospechosos.Length];
-        pistas_Sospechosos[0] = currentNivel.CalcularNPistasCorrectas();
-        int pistasRestantes = currentNivel.nPistas - pistas_Sospechosos[0];
-        /*for (int i = 1; i < currentNivel; i++)
-        {
-            pistas_Sospechosos[i] = 0;
-        }*/
-        /*for (int i = 1; i < sospechosos.Length; i++)
-        {
-            sospechosos[i].CrearPistas(pistas_Sospechosos[i]);
-        }*/
+        currentNivel = LevelLoader.LoadLevel(niveles, 0);
         StartGame();
+
+        void StartGame()
+        {
+            timer.SetTimerTime(currentNivel.tiempoTotal);
+        }
     }
 
-    private void StartGame()
+    void Update()
     {
-        timer.SetTimerTime(currentNivel.tiempoTotal);
+        if ((victoryScreen.activeSelf || loseScreen.activeSelf) && Input.GetKeyDown(KeyCode.R)) RestartGame();
+
+        void RestartGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     public void GameOver()
     {
         Debug.Log("Timer finished! Game Over!");
-    }
-
-    void Update()
-    {
-        // Si alguna pantalla final está activa y se presiona R
-        if ((victoryScreen.activeSelf || loseScreen.activeSelf) && Input.GetKeyDown(KeyCode.R))
-        {
-            RestartGame();
-        }
     }
 
     // Método para finalizar el juego
@@ -120,18 +96,6 @@ public class GameManager : MonoBehaviour
 
         // Detener el tiempo del juego
         Time.timeScale = 0;
-    }
-
-    // Método para reiniciar el juego
-    private void RestartGame()
-    {
-        // Restaurar el tiempo
-        Time.timeScale = 1;
-        // Ocultar pantallas
-        victoryScreen.SetActive(false);
-        loseScreen.SetActive(false);
-        // Recargar la escena actual
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

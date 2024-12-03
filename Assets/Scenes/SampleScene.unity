@@ -3347,6 +3347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2090288808}
   - component: {fileID: 2090288807}
+  - component: {fileID: 2090288809}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3366,6 +3367,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e4711b84c240a4287062a9a299c91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  niveles:
+  - {fileID: 11400000, guid: b6b5f632140cf8e44be76530180776c2, type: 2}
+  timer: {fileID: 2090288809}
+  objetoPrefab: {fileID: 0}
+  npcPrefab: {fileID: 0}
   victoryScreen: {fileID: 651783678}
   loseScreen: {fileID: 782935951}
 --- !u!4 &2090288808
@@ -3383,6 +3389,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2090288809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090288806}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03fc0c67bdd8e1543aa412ccf4ebc8e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 0}
+  warningColor: {r: 1, g: 0, b: 0, a: 1}
+  backgroundMusic: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
