@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5897113902429078010}
   - component: {fileID: 118629833785673577}
   - component: {fileID: 7579777422883867109}
+  - component: {fileID: 9122682131931346425}
   - component: {fileID: 3864673372216553062}
-  - component: {fileID: 3207824029787768161}
   - component: {fileID: 3489965941347418685}
   - component: {fileID: 8927556807994311373}
   m_Layer: 0
@@ -87,6 +87,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9122682131931346425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221534083733792702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b10b5bc5c87d748a3b0019e53c84f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sus: {fileID: 0}
+  speed: 3.5
+  wanderRadius: 10
 --- !u!136 &3864673372216553062
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -110,22 +125,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3207824029787768161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221534083733792702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac1298c36c935cd45a0424b3f54d931d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGuilty: 0
-  npcName: Nigga
-  speed: 3.5
-  wanderRadius: 10
 --- !u!195 &3489965941347418685
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -133,7 +132,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221534083733792702}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -155,7 +154,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221534083733792702}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 

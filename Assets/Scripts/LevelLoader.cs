@@ -32,7 +32,7 @@ public class LevelLoader : MonoBehaviour
         }
         for (int i = 0; i < sospechosos.Length; i++)
         {
-            Instantiate(GameManager.Instance.sospechosoPrefab, suspectsRandomPos[i], Quaternion.identity);
+            Instantiate(GameManager.Instance.sospechosoPrefab, suspectsRandomPos[i], Quaternion.identity).sus = sospechosos[i];
             sospechosos[i].CrearPistas(pistas_Sospechosos[i]);
         }
         culpable = sospechosos[0];

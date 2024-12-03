@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PistaNPCSO", menuName = "Scriptables/Pistas/NPC")]
+[CreateAssetMenu(fileName = "PistaNPCSO", menuName = "Scriptables/Pistas/Susss")]
 public class PistaNPC : Pista
 {
     //public string nombre;

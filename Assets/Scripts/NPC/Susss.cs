@@ -2,19 +2,17 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public class NPC : MonoBehaviour
+public class Susss : MonoBehaviour
 {
-    public bool isGuilty;
-    public string npcName;
-    public float speed = 3.5f;
-    public float wanderRadius = 10f; // Radio en el que el NPC vagará
+    [HideInInspector] public Sospechoso sus;
+    //public float speed = 3.5f;
+    //public float wanderRadius = 10f; // Radio en el que el Susss vagará
 
-    private NavMeshAgent agent;
-    private bool isWandering = false;
+    //private NavMeshAgent agent;
+    //private bool isWandering = false;
 
-    void Start()
-    {
-        
+    /*void Start()
+    {      
         // Asegurarse de tener NavMeshAgent
         agent = GetComponent<NavMeshAgent>();
         if (agent == null)
@@ -54,5 +52,6 @@ public class NPC : MonoBehaviour
             }
             yield return new WaitForSeconds(0.5f);
         }
-    }
+    }*/
+
 }

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerManager playerManager;
     [SerializeField] private TextMeshProUGUI resultsText;
     [Header("Assets")]
-    public GameObject sospechosoPrefab;
+    public Susss sospechosoPrefab;
     public Item objetoPrefab, npcPrefab;
 
 #if UNITY_EDITOR
@@ -100,6 +100,13 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    public void Arrest(Sospechoso sus)
+    {
+        EndGame(sus == culpable);
+        //ShowMessage("¡Has atrapado al culpable!");
+        //ShowMessage("¡Has arrestado a un inocente!");
     }
 
     public void GameOver()

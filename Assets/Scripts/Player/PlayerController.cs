@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private PlayerState m_CurrentState;
     #endregion
     [SerializeField] InventoryManager inventoryManager;
-    private float interactionDistance = 3f; // Distancia para detectar NPC
+    private float interactionDistance = 3f; // Distancia para detectar Susss
 
     public bool IsNPCInFront()
     {
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         Vector3 origin = transform.position + transform.forward * 0.1f; 
         if (Physics.Raycast(origin, transform.forward, out hit, interactionDistance))
         {
-            bool IsNPC = hit.collider.CompareTag("NPC");
+            bool IsNPC = hit.collider.CompareTag("Susss");
             Debug.Log($"IsNPC: {IsNPC}, Hit: {hit.collider.name}");
             return IsNPC;
         }

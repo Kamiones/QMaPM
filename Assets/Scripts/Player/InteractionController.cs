@@ -32,7 +32,7 @@ public class InteractionController : MonoBehaviour
                     dialogArea.SetActive(true);
                 }
             }
-            else if (hit.transform.CompareTag("NPC"))
+            else if (hit.transform.CompareTag("Susss"))
             {
                 Debug.Log("Interact [E]");
 
