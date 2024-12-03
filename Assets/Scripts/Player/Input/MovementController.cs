@@ -37,4 +37,9 @@ public class MovementController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
     }
+
+    public bool IsGrounded
+    {
+        get { return isGrounded; }
+    }
 }

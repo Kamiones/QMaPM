@@ -3,29 +3,30 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject InventoryMenu;
-    private bool menuActivated;
+    //private bool menuActivated;
     public ItemSlot[] itemSlot;
-    
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I))
-        {
-            if (menuActivated)
-            {
-                InventoryMenu.SetActive(false);
-                menuActivated = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            else
-            {
-                InventoryMenu.SetActive(true);
-                menuActivated = true;
-                DeselectAllSlots();
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-        }
+        // ...existing code...
+        // Eliminar la lógica de entrada aquí para gestionar la entrada desde PlayerInventory
+    }
+
+    public void ShowInventory()
+    {
+        InventoryMenu.SetActive(true);
+        //menuActivated = true;
+        DeselectAllSlots();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void HideInventory()
+    {
+        InventoryMenu.SetActive(false);
+        //menuActivated = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void AddItem(string itemName, Sprite itemSprite, string itemDescription)
