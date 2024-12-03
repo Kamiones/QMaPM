@@ -1,21 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] float sensitivity = 100f;
+    public Transform player;
+    public float sensitivity = 100f;
 
-    Transform player;
     float xRotation = 0f;
-
-    void Awake()
-    {
-        player = transform.parent;
-    }
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     void Update()

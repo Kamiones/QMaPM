@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -35,6 +34,9 @@ public class Sospechoso : ScriptableObject
 
     public void CrearPistas(int n)
     {
+#if UNITY_EDITOR
+        GameManager.ArrayHasNulls(ref pistas, "Pistas");
+#endif
         Pista[] res = ElegirPistas();
         foreach (Pista p in res)
         {

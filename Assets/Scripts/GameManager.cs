@@ -1,15 +1,18 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {  get; private set; }
     [SerializeField] private Nivel[] niveles = new Nivel[1];
     private Nivel currentNivel;
-    public SoundManager soundManager;
     [SerializeField] private Timer timer;
     [SerializeField] private PlayerManager playerManager;
+    public GameObject sospechosoPrefab;
     public Item objetoPrefab, npcPrefab;
     [SerializeField] private GameObject victoryScreen, loseScreen;
 
@@ -42,6 +45,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public static bool ArrayHasNulls<T>(ref T[] array, string nombre)
+    {
+        foreach (T item in array)
+        {
+            if (item == null)
+            {
+                Debug.LogError($"{nombre} tiene nulls");
+                EditorApplication.ExitPlaymode();
+                return true;
+            }
+        }
+        return false;
+    }
+
     void OnValidate()
     {
         CheckMinArraySize(ref niveles, 1, "nivel");
@@ -51,6 +68,9 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+#if UNITY_EDITOR
+        ArrayHasNulls(ref niveles, "Niveles");
+#endif
         if(Instance == null) Instance = this;
         else Destroy(gameObject);
     }

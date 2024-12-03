@@ -1,23 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    [SerializeField] float speed = 7.0f;
-    [SerializeField] float jumpHeight = 1.0f;
-    [SerializeField] float gravity = -9.81f;
+    public CharacterController controller;
+    public float speed = 7.0f;
+    public float jumpHeight = 1.0f;
+    public float gravity = -9.81f;
 
-    CharacterController characterController;
     Vector3 velocity;
     bool isGrounded;
 
-    void Awake()
-    {
-        characterController = GetComponent<CharacterController>();
-    }
-
     void Update()
     {
-        isGrounded = characterController.isGrounded;
+        isGrounded = controller.isGrounded;
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = 0f;
@@ -27,7 +24,7 @@ public class MovementController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * horizontal + transform.forward * vertical;
-        characterController.Move(move * speed * Time.deltaTime);
+        controller.Move(move * speed * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -35,6 +32,6 @@ public class MovementController : MonoBehaviour
         }
 
         velocity.y += gravity * Time.deltaTime;
-        characterController.Move(velocity * Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime);
     }
 }

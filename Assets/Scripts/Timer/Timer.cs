@@ -66,7 +66,7 @@ public class Timer : MonoBehaviour
     private void SetTimeState(int index)
     {
         TimerState current = timerStates[index];
-        if(current.newMusic != null) GameManager.Instance.soundManager.PlayMusic(current.newMusic);
+        if(current.newMusic != null) SoundManager.Instance.PlayMusic(current.newMusic);
         if(current.newColor != new Color()) timerText.color = current.newColor;
         pingPong = current.pingPong;
     }
