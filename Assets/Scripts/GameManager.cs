@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
-using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {  get; private set; }
     [SerializeField] private Nivel[] niveles = new Nivel[1];
+    private Nivel currentNivel;
+    [SerializeField] private Timer timer;
     public GameObject objetoPrefab, npcPrefab;
 
 #if UNITY_EDITOR
@@ -23,13 +24,16 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 1; i < array.Length; i++)
         {
-            for (int j = 0; j < i; j++)
+            if (array[i] != null)
             {
-                if (array[i] == array[j])
+                for (int j = 0; j < i; j++)
                 {
-                    array[i] = null;
-                    Debug.LogError($"No se permiten {elem} duplicad{(o?"o":"a")}s");
-                    break;
+                    if (array[i] == array[j])
+                    {
+                        array[i] = null;
+                        Debug.LogError($"No se permiten {elem} duplicad{(o ? "o" : "a")}s");
+                        break;
+                    }
                 }
             }
         }
@@ -59,27 +63,32 @@ public class GameManager : MonoBehaviour
 
     private void GenerateLevel(int n)
     {
-        Nivel currentNivel = niveles[n];
+        currentNivel = niveles[n];
         Sospechoso[] sospechosos = (Sospechoso[])currentNivel.sospechosos.Clone();
         int r = Random.Range(0, sospechosos.Length);
         (sospechosos[0], sospechosos[r]) = (sospechosos[r], sospechosos[0]);
         int[] pistas_Sospechosos = new int[sospechosos.Length];
         pistas_Sospechosos[0] = currentNivel.CalcularNPistasCorrectas();
         int pistasRestantes = currentNivel.nPistas - pistas_Sospechosos[0];
-        for (int i = 0; i < currentNivel.nPistas; i++)
+        /*for (int i = 1; i < currentNivel; i++)
         {
             pistas_Sospechosos[i] = 0;
-        }
-        for (int i = 1; i < sospechosos.Length; i++)
+        }*/
+        /*for (int i = 1; i < sospechosos.Length; i++)
         {
             sospechosos[i].CrearPistas(pistas_Sospechosos[i]);
-        }
+        }*/
         StartGame();
     }
 
     private void StartGame()
     {
+        timer.SetTimerTime(currentNivel.tiempoTotal);
+    }
 
+    public void GameOver()
+    {
+        Debug.Log("Timer finished! Game Over!");
     }
 
 }

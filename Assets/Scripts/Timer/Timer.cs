@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -10,10 +7,9 @@ public class Timer : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private Color warningColor = Color.red;
     [SerializeField] private AudioSource backgroundMusic;
-
     private bool isWarningTriggered = false;
 
-    private void Update()
+    void Update()
     {
         timerTime = Mathf.Max(0, timerTime - Time.deltaTime);
 
@@ -51,7 +47,7 @@ public class Timer : MonoBehaviour
 
     private void OnTimerFinished()
     {
-        Debug.Log("Timer finished! Game Over!");
+        GameManager.Instance.GameOver();
 
         if (backgroundMusic != null)
         {
@@ -64,7 +60,7 @@ public class Timer : MonoBehaviour
     public void SetTimerTime(float newTime)
     {
         timerTime = newTime;
+        enabled = true;
     }
-
 
 }
