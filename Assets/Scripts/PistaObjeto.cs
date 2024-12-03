@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PistaObjetoSO", menuName = "Scriptables/Pistas/Objeto")]
 public class PistaObjeto : Pista
 {
-    [SerializeField] private Sprite asset;
+    [SerializeField] private MeshRenderer asset;
 
     public override void CrearPista()
     {

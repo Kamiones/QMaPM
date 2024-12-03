@@ -1,45 +1,64 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CanvasSequenceManager : MonoBehaviour
 {
-    public CanvasGroup[] elements; // Array para almacenar los elementos del Canvas
-    public float fadeDuration = 1f; // Duración del fade-in y fade-out
-    public float displayDuration = 3f; // Tiempo que cada elemento permanece visible
+    [SerializeField, TextArea] private string[] textos;
+    [SerializeField] private TextMeshProUGUI textMeshPro;
+    [SerializeField] float fadeDuration = 1f, displayDuration = 3f;
 
-    private void Start()
+    void Start()
     {
         StartCoroutine(PlaySequence());
     }
 
-    private IEnumerator PlaySequence()
+    void Update()
     {
-        // Recorre todos los elementos en el array
-        foreach (CanvasGroup element in elements)
-        {
-            // Fade-in: Aparece el elemento
-            yield return StartCoroutine(FadeCanvasGroup(element, 0, 1, fadeDuration));
-
-            // Espera mientras el elemento se muestra
-            yield return new WaitForSeconds(displayDuration);
-
-            // Fade-out: Desaparece el elemento
-            yield return StartCoroutine(FadeCanvasGroup(element, 1, 0, fadeDuration));
-        }
-
-        // Opcional: Llamar a otra función o cargar una nueva escena cuando termine la secuencia
-        Debug.Log("Secuencia completada.");
+        if (Input.GetMouseButtonDown(0)) NextScene();
     }
 
-    private IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float startAlpha, float endAlpha, float duration)
+    private void NextScene()
     {
-        float elapsed = 0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private IEnumerator PlaySequence()
+    {
+        foreach (string t in textos)
+        {
+            textMeshPro.text = t;
+            yield return StartCoroutine(FadeAlpha(true, fadeDuration));
+            yield return new WaitForSeconds(displayDuration);
+            yield return StartCoroutine(FadeAlpha(false, fadeDuration));
+        }
+        NextScene();
+    }
+
+    private IEnumerator FadeAlpha(bool fadeIn, float duration)
+    {
+        float elapsed = 0f, start, end;
+        if (fadeIn)
+        {
+            start = 0f;
+            end = 1f;
+        }
+        else
+        {
+            start = 1f;
+            end = 0f;
+        }
+        Color aux = Color.white;
         while (elapsed < duration)
         {
-            canvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
+            float a = Mathf.Lerp(start, end, elapsed / duration);
+            aux = textMeshPro.color;
+            textMeshPro.color = new Color(aux.r, aux.g, aux.b, a);
             elapsed += Time.deltaTime;
             yield return null;
         }
-        canvasGroup.alpha = endAlpha;
+        textMeshPro.color = new Color(aux.r, aux.g, aux.b, end);
     }
+
 }
