@@ -14,7 +14,6 @@ public class NPC : MonoBehaviour
 
     void Start()
     {
-        gameObject.tag = "NPC";
         
         // Asegurarse de tener NavMeshAgent
         agent = GetComponent<NavMeshAgent>();
