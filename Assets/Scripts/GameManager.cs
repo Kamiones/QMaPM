@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -10,11 +12,15 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {  get; private set; }
     [SerializeField] private Nivel[] niveles = new Nivel[1];
     private Nivel currentNivel;
+    private Sospechoso culpable;
+    [Header("Punteros")]
+    [SerializeField] private LevelLoader levelLoader;
     [SerializeField] private Timer timer;
     [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private TextMeshProUGUI resultsText;
+    [Header("Assets")]
     public GameObject sospechosoPrefab;
     public Item objetoPrefab, npcPrefab;
-    [SerializeField] private GameObject victoryScreen, loseScreen;
 
 #if UNITY_EDITOR
     public static void CheckMinArraySize<T>(ref T[] array, int min, string elem) where T : ScriptableObject
@@ -45,7 +51,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static bool ArrayHasNulls<T>(ref T[] array, string nombre)
+    public static void ArrayHasNulls<T>(ref T[] array, string nombre)
     {
         foreach (T item in array)
         {
@@ -53,10 +59,8 @@ public class GameManager : MonoBehaviour
             {
                 Debug.LogError($"{nombre} tiene nulls");
                 EditorApplication.ExitPlaymode();
-                return true;
             }
         }
-        return false;
     }
 
     void OnValidate()
@@ -78,9 +82,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        victoryScreen.SetActive(false);
-        loseScreen.SetActive(false);
-        currentNivel = LevelLoader.LoadLevel(niveles, 0);
+        currentNivel = levelLoader.LoadLevel(niveles, 0, out culpable);
         StartGame();
 
         void StartGame()
@@ -92,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if ((victoryScreen.activeSelf || loseScreen.activeSelf) && Input.GetKeyDown(KeyCode.R)) RestartGame();
+        if (Time.timeScale == 0 && Input.GetKeyDown(KeyCode.R)) RestartGame();
 
         void RestartGame()
         {
@@ -108,16 +110,8 @@ public class GameManager : MonoBehaviour
     // Método para finalizar el juego
     public void EndGame(bool hasWon)
     {
-        if (hasWon)
-        {
-            victoryScreen.SetActive(true);
-        }
-        else
-        {
-            loseScreen.SetActive(true);
-        }
-
-        // Detener el tiempo del juego
+        resultsText.text = hasWon? "ATRAPASTE AL CULPABLE" : "Perdiste...";
+        resultsText.transform.parent.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
 

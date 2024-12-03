@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    public CharacterController controller;
-    public float speed = 7.0f;
-    public float jumpHeight = 1.0f;
-    public float gravity = -9.81f;
+    [SerializeField] private CharacterController controller;
+    [SerializeField] public float speed = 7.0f;
+    [SerializeField] public float jumpHeight = 1.0f;
+    private float gravity = -9.81f;
 
     Vector3 velocity;
     bool isGrounded;

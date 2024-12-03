@@ -18,7 +18,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1f080a8babb94b74c862f13c208277ea, type: 2}
   - {fileID: 11400000, guid: c08e01570948745488b5f07170f6935d, type: 2}
   - {fileID: 11400000, guid: 5b3c09b1ae059b94e941e3ebd1837e9b, type: 2}
-  - {fileID: 11400000, guid: a3c336deef0e6c746baa831dcd0789b3, type: 2}
   nPistas: 10
   ratioPistasCorrectas: {x: 0.38333333, y: 0.5}
   ratioPistasIncorrectas: {x: 0, y: 0}

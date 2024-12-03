@@ -78,9 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb93ea708cf2c2b4783d738f7ca21a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 5197518688089233166}
   speed: 7
   jumpHeight: 1
-  gravity: -9.81
 --- !u!114 &2782793703724609755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db029297550a924aad03b4b9c07e7c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1522315890782733897}
   sensitivity: 100
 --- !u!1 &8203966310396223813
 GameObject:

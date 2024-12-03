@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform player;
+    [SerializeField] Transform player;
     public float sensitivity = 100f;
 
     float xRotation = 0f;

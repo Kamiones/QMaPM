@@ -3,12 +3,22 @@ using Random = UnityEngine.Random;
 
 public class LevelLoader : MonoBehaviour
 {
+    private Vector3[] suspectsRandomPos;
 
-    public static Nivel LoadLevel(Nivel[] niveles, int n)
+    void Start()
+    {
+        suspectsRandomPos = new Vector3[transform.childCount];
+        for (int i = 0; i < suspectsRandomPos.Length; i++)
+        {
+            suspectsRandomPos[i] = transform.GetChild(i).position;
+        }
+    }
+
+    public Nivel LoadLevel(Nivel[] niveles, int n, out Sospechoso culpable)
     {
         Nivel currentNivel = niveles[n];
 #if UNITY_EDITOR
-        if (GameManager.ArrayHasNulls(ref currentNivel.sospechosos, "Sospechosos")) return null;
+        GameManager.ArrayHasNulls(ref currentNivel.sospechosos, "Sospechosos");
 #endif
         Sospechoso[] sospechosos = (Sospechoso[])currentNivel.sospechosos.Clone();
         int r = Random.Range(0, sospechosos.Length);
@@ -22,10 +32,16 @@ public class LevelLoader : MonoBehaviour
         }
         for (int i = 1; i < sospechosos.Length; i++)
         {
-            Instantiate(GameManager.Instance.sospechosoPrefab, Vector3.zero, Quaternion.identity);
+            Instantiate(GameManager.Instance.sospechosoPrefab, GetRandomPos(), Quaternion.identity);
             sospechosos[i].CrearPistas(pistas_Sospechosos[i]);
         }
+        culpable = sospechosos[0];
         return currentNivel;
+    }
+
+    private Vector3 GetRandomPos()
+    {
+        return suspectsRandomPos[Random.Range(0, suspectsRandomPos.Length)];
     }
 
 }
