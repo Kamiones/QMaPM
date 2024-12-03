@@ -3,12 +3,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PistaNPCSO", menuName = "Scriptables/Pistas/NPC")]
 public class PistaNPC : Pista
 {
+    //public string nombre;
     [TextArea] public string dialogo;
 
     public override void CrearPista()
     {
-        var obj = Instantiate(GameManager.Instance.npcPrefab, pos, Quaternion.identity);
-        obj.name = dialogo;
+        Item npc = Instantiate(GameManager.Instance.npcPrefab, pos, Quaternion.identity);
+        npc.pista = this;
     }
 
 }

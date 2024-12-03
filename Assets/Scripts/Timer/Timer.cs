@@ -60,7 +60,7 @@ public class Timer : MonoBehaviour
     public void SetTimerTime(float newTime)
     {
         timerTime = newTime;
-        enabled = true;
+        gameObject.SetActive(true);
     }
 
 }

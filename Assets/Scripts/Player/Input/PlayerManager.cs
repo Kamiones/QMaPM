@@ -2,14 +2,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    MovementController movementController;
-    CameraController cameraController;
-
-    void Awake()
-    {
-        movementController = GetComponent<MovementController>();
-        cameraController = transform.GetChild(1).GetComponent<CameraController>();
-    }
+    [SerializeField] private MovementController movementController;
+    [SerializeField] private CameraController cameraController;
 
     void Start()
     {

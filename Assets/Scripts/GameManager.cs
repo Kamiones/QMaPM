@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Nivel[] niveles = new Nivel[1];
     private Nivel currentNivel;
     [SerializeField] private Timer timer;
-    public GameObject objetoPrefab, npcPrefab;
+    public GameObject objetoPrefab;
+    public Item npcPrefab;
     [SerializeField] private GameObject victoryScreen, loseScreen;
 
 #if UNITY_EDITOR

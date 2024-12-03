@@ -153,7 +153,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
-  itemName: Relato de Mario (carnicero)
-  itemSprite: {fileID: 21300000, guid: ea72dc3fde0c2e048a7851dc620248d8, type: 3}
-  itemDescription: "Un d\xEDa antes de la desaparici\xF3n de Palomino, escuch\xE9
-    una discusi\xF3n fuerte entre \xE9l y el coronel."
+  pista: {fileID: 0}

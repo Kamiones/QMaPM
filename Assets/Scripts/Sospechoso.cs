@@ -5,6 +5,11 @@ using Random = UnityEngine.Random;
 public abstract class Pista : ScriptableObject
 {
     [SerializeField] protected Vector3 pos;
+    [Header("Inventario")]
+    public string nombre;
+    public Sprite sprite;
+    [TextArea] public string description;
+
     public abstract void CrearPista();
 }
 

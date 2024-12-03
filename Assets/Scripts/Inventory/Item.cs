@@ -3,22 +3,16 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField] InventoryManager inventoryManager;
-
-    [SerializeField] string itemName;
-    [SerializeField] Sprite itemSprite;
-
-    [TextArea]
-    [SerializeField] string itemDescription;
-
-
+    [HideInInspector] public Pista pista;
 
     public string Interact()
     {
-        inventoryManager.AddItem(itemName, itemSprite, itemDescription);
+        inventoryManager.AddItem(pista.nombre, pista.sprite, pista.description);
         
         if (transform.CompareTag("Interactable")) Destroy(gameObject);
         else Destroy(this);
 
-        return itemName;
+        return pista.nombre;
     }
+
 }
