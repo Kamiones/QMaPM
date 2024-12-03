@@ -10,7 +10,6 @@ public class ArrestNPC : MonoBehaviour
     private GameObject npcToArrest;
     public int cluesFound = 0;
     private GameManager gameManager;
-    private Camera mainCamera;
     public Text interactionText; // Referencia al texto UI
     private bool isArresting = false;
 
@@ -18,7 +17,6 @@ public class ArrestNPC : MonoBehaviour
 
     void Start()
     {
-        mainCamera = Camera.main;
         gameManager = GameObject.FindObjectOfType<GameManager>();
         if (gameManager == null)
         {
@@ -26,44 +24,54 @@ public class ArrestNPC : MonoBehaviour
         }
     }
 
+    public bool IsSusInFront()
+    {
+        RaycastHit hit;
+        // Offset para evitar que el raycast detecte al propio jugador
+        Vector3 origin = transform.position + transform.forward * 0.1f; 
+        if (Physics.Raycast(origin, transform.forward, out hit, arrestDistance))
+        {
+            bool IsSospechoso = hit.collider.CompareTag("Sospechoso");
+            Debug.Log($"IsSospechoso: {IsSospechoso}, Hit: {hit.collider.name}");
+            if (IsSospechoso)
+            {
+                npcToArrest = hit.collider.gameObject;
+            }
+            else
+            {
+                npcToArrest = null;
+            }
+                return IsSospechoso;
+            }
+        Debug.Log("IsSospechoso: false, No hit");
+        return false;
+    }
+
     void Update()
     {   
-        Debug.Log("Clues found: " + cluesFound);
-        if (isArresting) return;
-
-        RaycastHit hit;
-        if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, arrestDistance))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (hit.collider.CompareTag("Suspect"))
+            if (IsSusInFront() && cluesFound > 0 && movementController.IsGrounded)
             {
-                Debug.Log("Sopechoso encontrado");
-                NPC npc = hit.collider.GetComponent<NPC>();
-                if (npc != null)
-                {
-                    npcToArrest = hit.collider.gameObject;
-                    if (cluesFound > 0)
-                    {
-                        ShowMessage($"Presiona E para arrestar a {npc.npcName}");
-                    }
-                    else
-                    {
-                        ShowMessage("Necesitas al menos una pista para arrestar");
-                    }
-                }
+
+                Arrest(npcToArrest);
+            }
+            else
+            {
+                ShowMessage("No puedes arrestar en este momento.");
             }
         }
-        else
-        {
-            npcToArrest = null;
-            HideMessage();
-        }
+    }
 
-        // Modificar la condición de arresto para verificar isGrounded
-        if (Input.GetKeyDown(KeyCode.E) && npcToArrest != null && cluesFound > 0 && movementController.IsGrounded)
+
+    private void HideMessage()
+    {
+        if (interactionText != null)
         {
-            Arrest(npcToArrest);
+            interactionText.gameObject.SetActive(false);
         }
     }
+
 
     private void ShowMessage(string message)
     {
@@ -71,14 +79,6 @@ public class ArrestNPC : MonoBehaviour
         {
             interactionText.text = message;
             interactionText.gameObject.SetActive(true);
-        }
-    }
-
-    private void HideMessage()
-    {
-        if (interactionText != null)
-        {
-            interactionText.gameObject.SetActive(false);
         }
     }
 
