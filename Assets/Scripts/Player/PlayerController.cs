@@ -37,16 +37,6 @@ public class PlayerController : MonoBehaviour
         AskState = new PlayerAsk(this);
         InventoryState = new PlayerInventory(this);
 
-        // Remover inicialización de LayerMask
-        // npcLayerMask = LayerMask.GetMask("NPC");
-
-        // Modificar la transición para verificar primero la pulsación de la tecla E
-        Transition toAsk = new Transition(
-            isValid: () => Input.GetKeyDown(KeyCode.Q) && IsNPCInFront() && PlayerManager.movementController.IsGrounded,
-            getNextState: () => AskState
-        );
-        WalkState.Transitions.Add(toAsk);
-
         StartStateMachine();
     }
 
