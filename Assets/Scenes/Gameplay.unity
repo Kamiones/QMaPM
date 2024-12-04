@@ -1180,6 +1180,18 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!114 &438860288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1254759937463092510, guid: b4b89ae59c4f68341b1a1c97b9b682fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1347472615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de661d9917881742996bbaf7ae53065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &451145646
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1962,6 +1974,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Borders
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368734424391048575, guid: 062e2990ee831174cb547e6f193a0354,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6262295264572066517, guid: 062e2990ee831174cb547e6f193a0354,
         type: 3}
@@ -3016,6 +3033,7 @@ MonoBehaviour:
   timer: {fileID: 8830100356917066229}
   playerManager: {fileID: 531866723}
   resultsText: {fileID: 1614652715}
+  inventoryManager: {fileID: 438860288}
   sospechosoPrefab: {fileID: 9122682131931346425, guid: d555a40595246b84d8957fdc101fdc91,
     type: 3}
   objetoPrefab: {fileID: 3376991699294476596, guid: b3582b1b939637b4abd4bf7e742b8ff2,
@@ -3054,6 +3072,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 255640339875900281, guid: 1b40d9cfc541df04ca842129b94258c0,
+        type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 438860288}
     - target: {fileID: 1522315890782733897, guid: 1b40d9cfc541df04ca842129b94258c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3114,7 +3137,8 @@ PrefabInstance:
       propertyPath: InventoryMenu
       value: 
       objectReference: {fileID: 3578341}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8342450148778417180, guid: 1b40d9cfc541df04ca842129b94258c0, type: 3}
     m_RemovedGameObjects:
     - {fileID: 9094472745719180265, guid: 1b40d9cfc541df04ca842129b94258c0, type: 3}
     m_AddedGameObjects: []

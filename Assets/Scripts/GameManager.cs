@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Timer timer;
     [SerializeField] private PlayerManager playerManager;
     [SerializeField] private TextMeshProUGUI resultsText;
+    public InventoryManager inventoryManager;
     [Header("Assets")]
     public Susss sospechosoPrefab;
     public Item objetoPrefab, npcPrefab;
