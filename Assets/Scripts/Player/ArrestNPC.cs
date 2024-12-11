@@ -12,11 +12,11 @@ public class ArrestNPC : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        /*if (Input.GetKeyDown(KeyCode.E))
         {
             if (IsSusInFront() && GameManager.Instance.clues > 0 && movementController.IsGrounded) GameManager.Instance.Arrest(npcToArrest.GetComponent<Susss>().sus);
             else ShowMessage("No puedes arrestar en este momento.");
-        }
+        }*/
     }
 
     public bool IsSusInFront()

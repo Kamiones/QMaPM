@@ -6,8 +6,8 @@ public class Item : MonoBehaviour
 
     public string Interact()
     {
-        GameManager.Instance.inventoryManager.AddItem(pista.nombre, pista.sprite, pista.description);
-        GameManager.Instance.clues++;
+        //GameManager.Instance.inventoryManager.AddItem(pista.nombre, pista.sprite, pista.description);
+        //GameManager.Instance.clues++;
         if (transform.CompareTag("Interactable")) Destroy(gameObject);
         else Destroy(this);
 
